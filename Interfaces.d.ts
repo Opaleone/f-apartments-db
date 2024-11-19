@@ -50,7 +50,7 @@ export interface IProperty {
   address: string | undefined,
   phone: string | undefined,
   leasingOffice: string | undefined
-  floorPlans: IFloorPlan[]
+  floorplans: IFloorPlan[]
 }
 /**
  * Type definition for Average object

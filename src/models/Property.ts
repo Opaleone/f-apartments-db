@@ -15,7 +15,7 @@ const propertySchema = new Schema<IProperty>({
   leasingOffice: {
     type: Schema.Types.String
   },
-  floorPlans: [
+  floorplans: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Floorplan'
