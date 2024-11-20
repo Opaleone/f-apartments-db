@@ -3,11 +3,11 @@ import { getOneProperty, createProperty, deleteProperty} from '../../controllers
 
 const router = express.Router();
 
+router.route('/create')
+  .post(createProperty);
+
 router.route('/:id')
   .get(getOneProperty)
   .delete(deleteProperty);
-
-router.route('/create')
-  .post(createProperty);
 
 export default router;

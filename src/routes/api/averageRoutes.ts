@@ -3,10 +3,10 @@ import { createAverages, deleteAverages } from '../../controllers';
 
 const router = express.Router();
 
+router.route('/create')
+.post(createAverages);
+
 router.route('/:id')
   .delete(deleteAverages);
-
-router.route('/create')
-  .post(createAverages);
 
 export default router;

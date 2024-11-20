@@ -3,10 +3,10 @@ import { createFloorplan, deleteFloorplan } from '../../controllers';
 
 const router = express.Router();
 
-router.route('/:id')
-  .delete(deleteFloorplan);
-
 router.route('/create')
   .post(createFloorplan);
+
+router.route('/:id')
+  .delete(deleteFloorplan);
 
 export default router;
