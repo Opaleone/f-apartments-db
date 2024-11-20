@@ -69,8 +69,9 @@ export interface IAverage {
   whenAvailable: string
 }
 
-export interface ICity {
+export interface ICityModel {
   cityName: string | undefined,
   state: string | undefined,
-  properties: IProperty[]
+  properties: IProperty[],
+  refresh: number
 }
