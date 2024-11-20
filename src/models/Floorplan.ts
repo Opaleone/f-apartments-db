@@ -4,15 +4,12 @@ import { IFloorPlan } from '../../Interfaces';
 const floorplanSchema = new Schema<IFloorPlan>({
   name: {
     type: Schema.Types.String,
-    required: true
   },
   beds: {
     type: Schema.Types.String,
-    required: true
   },
   baths: {
     type: Schema.Types.String,
-    required: true
   },
   details: [
     {

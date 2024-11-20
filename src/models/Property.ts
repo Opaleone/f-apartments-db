@@ -4,7 +4,6 @@ import { IProperty } from '../../Interfaces';
 const propertySchema = new Schema<IProperty>({
   propertyName: {
     type: Schema.Types.String,
-    required: true
   },
   address: {
     type: Schema.Types.String,
