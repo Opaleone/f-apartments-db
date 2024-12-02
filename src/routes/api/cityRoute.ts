@@ -13,7 +13,7 @@ router.route('/create')
 router.route('/')
   .get(getAllCities);
 
-router.route('/:id')
+router.route('/:cityName/:state')
   .get(getOneCity)
   .delete(deleteCity);
 
