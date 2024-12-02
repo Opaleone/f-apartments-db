@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import { Details } from '../models/index';
+import { Detail } from '../models/index';
 
 const createDetails = async (req: Request, res: Response) => {
   try {
-    const details = await Details.create(req.body);
+    const details = await Detail.create(req.body);
 
     if (!details) res.status(404).json({ message: 'No body found!'});
 
@@ -16,7 +16,7 @@ const createDetails = async (req: Request, res: Response) => {
 
 const deleteDetails = async (req: Request, res: Response) => {
   try {
-    const deletedDetails = await Details.findOneAndDelete({
+    const deletedDetails = await Detail.findOneAndDelete({
       _id: req.params.id
     })
 

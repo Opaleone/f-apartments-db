@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import { Averages } from '../models/index';
+import { Average } from '../models/index';
 
 const createAverages = async (req: Request, res: Response) => {
   try {
-    const averages = await Averages.create(req.body);
+    const averages = await Average.create(req.body);
 
     if (!averages) res.status(404).json({ message: 'No body found!'});
 
@@ -16,7 +16,7 @@ const createAverages = async (req: Request, res: Response) => {
 
 const deleteAverages = async (req: Request, res: Response) => {
   try {
-    const deletedAverages = await Averages.findOneAndDelete({
+    const deletedAverages = await Average.findOneAndDelete({
       _id: req.params.id
     })
 
