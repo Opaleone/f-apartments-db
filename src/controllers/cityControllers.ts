@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { City } from "../models";
+import { City, Detail } from "../models";
 
 const getAllCities = async (req: Request, res: Response) => {
   try {
@@ -40,7 +40,14 @@ const checkExist = async (req: Request, res: Response) => {
           res.status(200).send(city);
           return;
         }
-        // TODO: Implement cascading delete for city if Date.now() > city.refresh
+
+        //else {
+        //   await City.findOneAndDelete({
+        //     _id: city.id
+        //   })
+        //   res.status(200).send(undefined);
+        //   return;
+        // }
       }
     }
 
@@ -53,9 +60,13 @@ const checkExist = async (req: Request, res: Response) => {
 }
 
 const getOneCity = async (req: Request, res: Response) => {
+  const cityName = req.params.cityName;
+  const state = req.params.state;
+
   try {
     const singleCity = await City.findOne({ 
-      _id: req.params.id
+      cityName: cityName,
+      state: state
     }).populate({
       path: 'properties',
       populate: {
@@ -67,6 +78,9 @@ const getOneCity = async (req: Request, res: Response) => {
       }
     });
 
+    if (!singleCity) res.status(404).send({ message: `No city found for ${cityName}, ${state}`});
+
+    res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.status(200).send(singleCity);
   } catch (e) {
     console.error(e);
